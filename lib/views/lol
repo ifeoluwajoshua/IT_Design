@@ -1,0 +1,10 @@
+ChangeNotifierProvider<Images>(
+          create: (_) => Images(),
+          child:
+
+           @override
+  void initState() {
+  final image = Provider.of<Images>(context);
+  image.getPhotos();
+    super.initState();
+  }
