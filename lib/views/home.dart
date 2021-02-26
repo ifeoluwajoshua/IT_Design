@@ -14,11 +14,11 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final GlobalKey<ScaffoldState> _sKey = new GlobalKey();
- 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _sKey,
+        key: _sKey,
         drawer: PortDrawer(),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -29,7 +29,9 @@ class _HomeViewState extends State<HomeView> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                    onPressed: (){_sKey.currentState.openDrawer();},
+                    onPressed: () {
+                      _sKey.currentState.openDrawer();
+                    },
                     icon: Icon(
                       Icons.dashboard,
                       size: SizeConfig.yMargin(context, 3),
@@ -63,23 +65,25 @@ class _HomeViewState extends State<HomeView> {
                     fontWeight: FontWeight.w500),
               ),
               SizedBox(height: SizeConfig.yMargin(context, 1)),
-              Text(
-                'I am a Flutter Developer, Ui/Ux Designer and Interior Designer',
-                style: TextStyle(fontSize: SizeConfig.textSize(context, 3.8)),
+              Padding(
+                padding: const EdgeInsets.only(left:  20, right: 20),
+                child: Text(
+                  'I am a Flutter Developer, Ui/Ux Designer and Interior Designer',
+                  style: TextStyle(fontSize: SizeConfig.textSize(context, 3.8)),
+                ),
               ),
               SizedBox(height: SizeConfig.yMargin(context, 8)),
               GestureDetector(
-                onTap: (){
+                onTap: () {
                   Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (BuildContext context) =>
-                      PortView()));
-         
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => PortView()));
                 },
-                              child: Container(
-                  width: SizeConfig.xMargin(context, 50), 
-                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 17),
+                child: Container(
+                    width: SizeConfig.xMargin(context, 50),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 17),
                     decoration: BoxDecoration(
                         color: Colors.yellow[100],
                         borderRadius: BorderRadius.circular(15)),
@@ -109,6 +113,13 @@ class _HomeViewState extends State<HomeView> {
                 ],
               )
             ],
+          ),
+        ),
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.only(bottom: 150, right: 20),
+          child: FloatingActionButton(
+            onPressed: () {},
+            child: FaIcon(FontAwesomeIcons.whatsapp),
           ),
         ));
   }
